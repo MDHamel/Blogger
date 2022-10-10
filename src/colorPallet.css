@@ -1,0 +1,22 @@
+:root{
+    --main-bg-color: #252932;
+    --secondary-bg-color: rgba(53, 80, 114, 0.425);
+    
+    --post-input-color: rgb(40, 47, 65);
+    --post-bg-color: rgb(46, 55, 78);
+    --post-bg-hover: rgb(56, 67, 97);
+    --darker-post-color:rgb(33, 43, 66);
+
+    --blogger-blue: rgb(49, 144, 252);
+    --blogger-blue2:rgb(62, 149, 248);
+    --blogger-blue-active: rgb(91, 153, 245);
+    --blogger-blue-hover: rgb(47, 112, 209);
+    --blogger-red: rgb(219, 91, 91);
+
+    --inbetween-color: #aab;
+
+    --font-color:           rgb(220, 225, 255);
+    --font-secondary-color: rgb(188, 195, 228);
+    --font-grayed-color:    rgb(165, 169, 189);
+
+}

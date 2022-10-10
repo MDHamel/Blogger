@@ -1,0 +1,34 @@
+{
+    "posts":[
+        {
+            "post": "Uno Mas",
+            "date": "10/4/2022",
+            "time": "1:43 PM",
+            "author": "mdhamel"
+        },
+        {
+            "post": "Another Post to test scrolling and what not",
+            "date": "10/4/2022",
+            "time": "1:43 PM",
+            "author": "mdhamel"
+        },
+        {
+            "post": "Counting characters to find a good number of allotted characters so that making a post can be formatted statically and without the need to correct posts that look weird while allowing enough text for the user to type in the information for a post.250",
+            "date": "10/4/2022",
+            "time": "11:31 AM",
+            "author": "mdhamel"
+        },
+        {
+            "post": "Second post to check formatting and testing, still manually added.",
+            "date": "10/4/2022",
+            "time": "11:31 AM",
+            "author": "mdhamel"
+        },
+        {
+            "post": "First Post!",
+            "date": "10/4/2022",
+            "time": "11:30 AM",
+            "author": "mdhamel"
+        }
+    ]
+}
