@@ -1,16 +1,15 @@
 :root{
-    --main-bg-color: #252932;
-    --secondary-bg-color: rgba(53, 80, 114, 0.425);
+    --main-bg-color: #2b3141;
     
-    --post-input-color: rgb(40, 47, 65);
-    --post-bg-color: rgb(46, 55, 78);
-    --post-bg-hover: rgb(56, 67, 97);
-    --darker-post-color:rgb(33, 43, 66);
+    --post-input-color: rgb(42, 48, 77);
+    --post-bg-color: rgb(46, 54, 80);
+    --post-bg-hover: rgb(58, 71, 105);
+    --darker-post-color:rgb(33, 41, 66);
 
-    --blogger-blue: rgb(49, 144, 252);
-    --blogger-blue2:rgb(62, 149, 248);
-    --blogger-blue-active: rgb(91, 153, 245);
-    --blogger-blue-hover: rgb(47, 112, 209);
+    --blogger-blue: rgb(75, 93, 255);
+    --blogger-blue2:rgb(70, 116, 243);
+    --blogger-blue-active: rgb(61, 73, 243);
+    --blogger-blue-hover: rgb(101, 123, 247);
     --blogger-red: rgb(219, 91, 91);
 
     --inbetween-color: #aab;

@@ -2,13 +2,14 @@ import axios from "axios";
 import { useState } from "react";
 import "./App.css";
 
-var serverUrl = process.env.REACT_APP_SERVER_URL;
 
 export default function PostBox() {
     let maxCharCount = 250;
     const [charCount, setCharCount] = useState(0);
     const allowedKeys = [8, 37,38,39,40];
     let charPer = charCount/maxCharCount * 100;
+
+    const [loginReveal, setReveal] = useState(false);
 
     const charCounter = (e) => {
         setCharCount(e.target.outerText.length);
@@ -23,10 +24,14 @@ export default function PostBox() {
 
     const onPost = (e) =>{
         const postText = e.target.parentNode.parentNode.querySelector(".postInput").innerText;
-        
+        if (postText.length == 0){
+            console.log("Too short, post not submitted.")
+            return;
+        }
 
         const d = new Date();
-        const time = `${d.getHours() <= 12?d.getHours():d.getHours()-12}:${d.getMinutes()} ${d.getHours() > 12?"PM":"AM"}`
+        const min = d.getMinutes() < 10 ? "0" + d.getMinutes().toString() : d.getMinutes().toString();
+        const time = `${d.getHours() <= 12?d.getHours():d.getHours()-12}:${min} ${d.getHours() > 12?"PM":"AM"}`
 
         const post = {
             post: postText,
@@ -36,7 +41,12 @@ export default function PostBox() {
         };
 
         console.log(JSON.stringify(post));
-        axios.post(serverUrl, JSON.stringify(post)).then((res)=>{console.log(res);e.target.parentNode.parentNode.querySelector(".postInput").innerText = "";setCharCount(0);}).catch((err)=>{console.log("ERROR", err)});
+        axios.post(process.env.REACT_APP_SERVER_URL, JSON.stringify(post)).then((res)=>{console.log(res);e.target.parentNode.parentNode.querySelector(".postInput").innerText = "";setCharCount(0);}).catch((err)=>{
+            console.log("ERROR", err.response.status);
+            if(err.response.status === 401){
+                setReveal(true);
+            }
+        });
     } 
 
     const pasteChange = (e) =>{
@@ -81,6 +91,7 @@ export default function PostBox() {
 
     return(
       <div className="newPostBox">
+        <Login reveal={loginReveal} setReveal={setReveal} />
             <span id="text" className="postInput" role="textbox" contentEditable onKeyDown={inputHandler} onKeyUp={charCounter} onPaste={pasteChange} onDrop={(e)=>{e.preventDefault();}}></span>
             <div className="bottom">
                 <section className="charCountSection">
@@ -89,8 +100,44 @@ export default function PostBox() {
                         <div className={"charCountBar " + (charPer == 100? "red" : "blue")} style={{width:`${charPer}%`}}/>
                     </figure>
                 </section>
-                <span className="newPostButton" onClick={onPost}>Post</span>
+                <span className="button" onClick={onPost}>Post</span>
             </div>
       </div>
     )
   };
+
+
+  function Login(props){
+
+    const loginpost = () => {
+
+        console.log(document.getElementById("uname").value)
+        console.log(document.getElementById("password").value)
+
+        const info = {
+            user: document.getElementById("uname").value,
+            password: document.getElementById("password").value
+        }
+
+        axios.post(process.env.REACT_APP_LOGIN_URL, JSON.stringify(info)).then((res)=>{console.log(res);props.setReveal(false);}).catch((err)=>{
+            console.log("ERROR", err.response);
+        });
+    }
+
+    return(
+        <section className={"login " + (props.reveal?"visible":"hidden")}>
+            <form>
+                <label for="uname">Username</label><br />
+                <input type="text" id="uname" /><br />
+                <label for="password">Password</label><br />
+                <input type="password" id="password" />
+            </form>
+            <div className="bottom">
+
+                <span className="button" onClick={loginpost}>Login</span>
+                <span className="button" onClick={()=>{props.setReveal(false)}} style={{backgroundColor:"#778"}}>Cancel</span>
+            </div>
+            
+        </section>
+    )
+  }

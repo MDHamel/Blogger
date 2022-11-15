@@ -10,16 +10,21 @@ var serverUrl = process.env.REACT_APP_SERVER_URL;
 
 function App() {
 
-  const [content, setContent] = useState({posts:[{post:"Loading ... ", date:"Today", time:"Now", author:"Server"}]})
+  const [content, setContent] = useState({ posts: [{ post: "Loading ... ", date: "Today", time: "Now", author: "Server" }] })
 
   useEffect(() => {
-    axios.get(serverUrl).then((res)=>{setContent(res.data);}).catch(err=>{console.log(`Error: ${err}`);});
+    axios.get(serverUrl).then((res) => { setContent(res.data); }).catch(err => { console.log(`Error: ${err}`); });
   }, [])
-  
+
   return (
     <main className="app">
-      <aside className="filters">
-        <p>Filters WIP</p>
+      <aside className="welcome">
+        <h1>Hamel Blogger</h1>
+        <p>Hello and welcome to the personal blog of </p>
+        <h2>Matthew Hamel</h2>
+        <p>This blog was made using React and a server backend in JavaScript.</p>
+        <p>check out the code for this project </p>
+        <a>HERE</a>
       </aside>
 
       <section className="postSection">
@@ -33,16 +38,23 @@ function App() {
         <p className="bedrock">You've reached the bottom! Better turn back.</p>
       </section>
 
-      <aside className="links"> 
-        <p>Links to sites WIP</p>
+      <aside className="links">
+        <h2>Links to sites WIP</h2>
+        <ul>
+          <li>MatthewHamel.dev</li>
+          <li>GitHub</li>
+          <li>LinkedIn</li>
+          <li>In Development</li>
+        </ul>
       </aside>
+
     </main>
   );
 }
 
 
-export const Post = (props) =>{
-  return(
+export const Post = (props) => {
+  return (
     <div className="post">
       <div className="author">
         <img classname src={profile[props.data.author].profpic} />
