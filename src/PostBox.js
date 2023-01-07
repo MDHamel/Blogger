@@ -127,9 +127,9 @@ function Login(props) {
     return (
         <section className={"login " + (props.reveal ? "visible" : "hidden")}>
             <form>
-                <label for="uname">Username</label><br />
+                <label htmlFor="uname">Username</label><br />
                 <input type="text" id="uname" /><br />
-                <label for="password">Password</label><br />
+                <label htmlFor="password">Password</label><br />
                 <input type="password" id="password" />
             </form>
             <div className="bottom">

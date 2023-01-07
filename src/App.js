@@ -58,7 +58,7 @@ export const Post = (props) => {
   return (
     <div className="post">
       <div className="author">
-        <img classname src={profile[props.data.author].profpic} />
+        <img src={profile[props.data.author].profpic} />
         <p>{props.data.author}</p>
       </div>
       <p className="text">{props.data.post}</p>
