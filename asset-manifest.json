@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/blog.matthewhamel.dev/static/css/main.4c850f67.css",
+    "main.js": "/blog.matthewhamel.dev/static/js/main.c4ec6bd9.js",
+    "index.html": "/blog.matthewhamel.dev/index.html",
+    "main.4c850f67.css.map": "/blog.matthewhamel.dev/static/css/main.4c850f67.css.map",
+    "main.c4ec6bd9.js.map": "/blog.matthewhamel.dev/static/js/main.c4ec6bd9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4c850f67.css",
+    "static/js/main.c4ec6bd9.js"
+  ]
+}
