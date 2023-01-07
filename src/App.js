@@ -5,6 +5,8 @@ import "./App.css";
 import profile from "./profileData.json";
 import PostBox from "./PostBox";
 
+
+
 var serverUrl = process.env.REACT_APP_SERVER_URL;
 
 
@@ -39,12 +41,11 @@ function App() {
       </section>
 
       <aside className="links">
-        <h2>Links to sites WIP</h2>
+        <h2>Links</h2>
         <ul>
-          <li>MatthewHamel.dev</li>
-          <li>GitHub</li>
-          <li>LinkedIn</li>
-          <li>In Development</li>
+          <li onClick={()=>window.open("https://www.matthewhamel.dev")}>MatthewHamel.dev</li>
+          <li onClick={()=>window.open("https://github.com/MDHamel")}>GitHub</li>
+          <li onClick={()=>window.open("https://www.linkedin.com/in/mattdhamel/")}>LinkedIn</li>
         </ul>
       </aside>
 
